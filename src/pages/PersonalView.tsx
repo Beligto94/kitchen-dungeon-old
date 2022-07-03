@@ -43,7 +43,7 @@ export const PersonalView = () => {
                             <Text as={'span'} fontWeight={'bold'}>
                                 Звание:
                             </Text>{' '}
-                            42 mm
+                            Командир
                         </ListItem>
                     </List>
                 </Box>

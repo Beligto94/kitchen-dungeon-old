@@ -1,8 +1,8 @@
 import React from 'react';
 import { postAPI } from '../services/PostService';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
-import { Box, Heading, List, ListIcon, ListItem, Spinner, Text } from '@chakra-ui/react';
-import { CheckCircleIcon } from '@chakra-ui/icons';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Box, Flex, Heading, HStack, IconButton, Spinner, Text } from '@chakra-ui/react';
+import { BiArrowBack } from 'react-icons/bi';
 
 export const QuestView = () => {
     const { questId } = useParams();
@@ -10,6 +10,7 @@ export const QuestView = () => {
     const { data: post, isLoading: isLoadingPosts } = postAPI.useGetPostQuery(questId as string, {
         refetchOnMountOrArgChange: true,
     });
+    const navigate = useNavigate();
 
     return (
         <>
@@ -17,7 +18,15 @@ export const QuestView = () => {
                 <Spinner />
             ) : (
                 <Box w="full" bg="white" shadow="md" borderRadius="xl" p={8}>
-                    <Heading mb={4}>{post?.title}</Heading>
+                    <HStack align={'center'} mb={4} spacing={'12px'}>
+                        <IconButton
+                            aria-label="Назад"
+                            variant={'ghost'}
+                            onClick={() => navigate(-1)}
+                            icon={<BiArrowBack />}
+                        />
+                        <Heading>{post?.title}</Heading>
+                    </HStack>
                     <Text mt={4}>{post?.description}</Text>
                 </Box>
             )}
