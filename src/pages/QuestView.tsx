@@ -1,5 +1,5 @@
 import React from 'react';
-import { postAPI } from '../services/PostService';
+import { questAPI } from '../services/QuestService';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Box, Flex, Heading, HStack, IconButton, Spinner, Text } from '@chakra-ui/react';
 import { BiArrowBack } from 'react-icons/bi';
@@ -7,7 +7,7 @@ import { BiArrowBack } from 'react-icons/bi';
 export const QuestView = () => {
     const { questId } = useParams();
 
-    const { data: post, isLoading: isLoadingPosts } = postAPI.useGetPostQuery(questId as string, {
+    const { data: post, isLoading: isLoadingPosts } = questAPI.useGetQuestQuery(questId as string, {
         refetchOnMountOrArgChange: true,
     });
     const navigate = useNavigate();

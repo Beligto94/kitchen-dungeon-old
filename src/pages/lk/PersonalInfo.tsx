@@ -1,24 +1,13 @@
 import React from 'react';
-import { postAPI } from '../services/PostService';
-import { NavLink, Outlet } from 'react-router-dom';
-import { Box, Heading, List, ListIcon, ListItem, Text } from '@chakra-ui/react';
-import { CheckCircleIcon } from '@chakra-ui/icons';
+import {Box, Heading, List, ListItem, Text} from "@chakra-ui/react";
+import {Outlet} from "react-router-dom";
+import {PageContent} from "../../components/layouts/PageContent";
 
-export const PersonalView = () => {
-    const {
-        data: posts,
-        error,
-        isLoading,
-        refetch,
-    } = postAPI.useFetchAllPostsQuery({
-        limit: 3,
-        embed: 'comments',
-    });
-
+const PersonalInfo = () => {
     return (
-        <>
+        <PageContent>
             <Box w="full" bg="white" shadow="md" borderRadius="xl" p={8}>
-                <Heading mb={4}>Личный кабинет</Heading>
+                <Heading mb={4}>Основные</Heading>
                 <Box w="100%" p={4} border="1px" borderColor={'gray.300'} borderRadius={'xl'}>
                     <List spacing={2}>
                         <ListItem>
@@ -49,6 +38,8 @@ export const PersonalView = () => {
                 </Box>
                 <Outlet />
             </Box>
-        </>
+        </PageContent>
     );
 };
+
+export default PersonalInfo;

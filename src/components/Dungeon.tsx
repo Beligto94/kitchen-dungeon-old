@@ -1,5 +1,5 @@
 import React from 'react';
-import { postAPI } from '../services/PostService';
+import { questAPI } from '../services/QuestService';
 import { Link, NavLink, useParams } from 'react-router-dom';
 import { userAPI } from '../services/UserService';
 import { IUser } from '../models/IUser';
@@ -9,7 +9,7 @@ import { CheckCircleIcon } from '@chakra-ui/icons';
 const Dungeon = () => {
     const { userId } = useParams();
 
-    const { data: post, isLoading: isLoadingPosts } = postAPI.useGetPostQuery(userId as string, {
+    const { data: post, isLoading: isLoadingPosts } = questAPI.useGetQuestQuery(userId as string, {
         refetchOnMountOrArgChange: true,
     });
 

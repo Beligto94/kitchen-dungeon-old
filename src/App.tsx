@@ -8,10 +8,15 @@ import { QuestsView } from './pages/QuestsView';
 import { QuestsBookView } from './pages/QuestsBookView';
 import { QuestView } from './pages/QuestView';
 import { Box } from '@chakra-ui/react';
-import { PersonalView } from './pages/PersonalView';
+import { PersonalView } from './pages/lk/PersonalView';
+import { NavBar } from './components/NavBar/NavBar';
+import PersonalInfo from './pages/lk/PersonalInfo';
+import Gallery from "./pages/Gallery";
+import Settings from "./pages/lk/Settings";
+import Skills from "./pages/lk/Skills";
 
 function App() {
-    const [isAuth, setIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState(true);
 
     return (
         <>
@@ -26,24 +31,33 @@ function App() {
                     <Route
                         path="/"
                         element={
-                            <SidebarWithHeader
+                            // <SidebarWithHeader
+                            //     submit={() => {
+                            //         setIsAuth(false);
+                            //     }}
+                            // />
+                            <NavBar
                                 submit={() => {
                                     setIsAuth(false);
                                 }}
                             />
                         }
                     >
-                        <Route path="/dungeon/" element={<Dungeons />}>
-                            <Route path=":userId" element={<Dungeon />} />
-                        </Route>
                         <Route path="/quests" element={<QuestsView />}>
                             <Route index element={<QuestsBookView />} />
                             <Route path=":questId" element={<QuestView />} />
                         </Route>
-                        <Route path="/skills" element={<Box>SKILLS</Box>} />
-                        <Route path="/lk" element={<PersonalView />} />
-                        <Route path="/gallery" element={<Box>Галерея футажей</Box>} />
-                        <Route path="*" element={<Box>404</Box>} />
+
+                        <Route path="/lk" element={<PersonalView />}>
+                            <Route index element={<PersonalInfo />} />
+                            <Route path="dungeon" element={<Dungeons />}>
+                                <Route path=":userId" element={<Dungeon />} />
+                            </Route>
+                            <Route path="skills" element={<Skills/>} />
+                            <Route path="settings" element={<Settings/>} />
+                        </Route>
+                        <Route path="/gallery" element={<Gallery/>} />
+
                     </Route>
                 </Routes>
             )}

@@ -22,6 +22,7 @@ import { FiBell, FiChevronDown, FiCompass, FiHome, FiMenu, FiSettings, FiStar, F
 import { IconType } from 'react-icons';
 import { SidebarWrapper } from './components/layouts/SidebarWrapper';
 import { Outlet } from 'react-router-dom';
+import * as url from 'url';
 
 interface Props {
     submit: () => void;

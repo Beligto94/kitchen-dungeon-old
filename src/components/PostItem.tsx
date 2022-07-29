@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
-import {IPost} from "../models/IPost";
+import {IQuest} from "../models/IQuest";
 
 
 interface PostItemProps {
-    post: IPost;
-    remove: (post: IPost) => void;
-    update: (post: IPost) => void;
+    post: IQuest;
+    remove: (post: IQuest) => void;
+    update: (post: IQuest) => void;
 }
 
 const PostItem: FC<PostItemProps> = ({post, remove, update}) => {

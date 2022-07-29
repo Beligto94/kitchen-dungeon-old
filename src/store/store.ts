@@ -1,10 +1,10 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {postAPI} from "../services/PostService";
+import {questAPI} from "../services/QuestService";
 import {userAPI} from "../services/UserService";
 
 const rootReducer = combineReducers({
-    [postAPI.reducerPath]: postAPI.reducer,
-    [userAPI.reducerPath]: userAPI.reducer
+    [questAPI.reducerPath]: questAPI.reducer,
+    [userAPI.reducerPath]: userAPI.reducer,
 })
 
 export const setupStore = () => {
@@ -12,8 +12,9 @@ export const setupStore = () => {
         reducer: rootReducer,
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware()
-                .concat(postAPI.middleware)
+                .concat(questAPI.middleware)
                 .concat(userAPI.middleware)
+
     })
 }
 

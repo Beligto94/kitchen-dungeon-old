@@ -12,12 +12,11 @@ import {
     ModalHeader,
     ModalOverlay,
     Textarea,
-    useDisclosure, useToast,
+    useToast,
 } from '@chakra-ui/react';
-import { userAPI } from '../../services/UserService';
-import { postAPI } from '../../services/PostService';
+import { questAPI } from '../../services/QuestService';
 import { Field, Form, Formik } from 'formik';
-import { IPost } from '../../models/IPost';
+import { IQuest } from '../../models/IQuest';
 
 interface Props {
     isOpen: boolean;
@@ -30,21 +29,21 @@ interface MyFormValues {
 }
 
 export const CreateQuestModal = ({ isOpen, onClose }: Props) => {
-    const [createPost] = postAPI.useCreatePostMutation();
-    
+    const [createPost] = questAPI.useCreateQuestMutation();
+
     const toast = useToast();
-    
+
     const handleCreate = (values: MyFormValues) => {
         console.log(values);
-        createPost(values as IPost)
+        createPost(values as IQuest)
             .unwrap()
-            .then((payload) => {
-            toast({
-                title: `${payload?.title} создан`,
-                status: 'success',
-                isClosable: true,
+            .then(payload => {
+                toast({
+                    title: `${payload?.title} создан`,
+                    status: 'success',
+                    isClosable: true,
+                });
             });
-        });
     };
 
     const initialValues: MyFormValues = { title: '', description: '' };
@@ -80,6 +79,14 @@ export const CreateQuestModal = ({ isOpen, onClose }: Props) => {
                                             <FormControl mt={4}>
                                                 <FormLabel>Описание</FormLabel>
                                                 <Textarea {...field} placeholder="Описание" />
+                                            </FormControl>
+                                        )}
+                                    </Field>
+                                    <Field name="rewards">
+                                        {({ field, form }: any) => (
+                                            <FormControl isRequired>
+                                                <FormLabel>Награда</FormLabel>
+                                                <Input {...field} placeholder="Награда" />
                                             </FormControl>
                                         )}
                                     </Field>
