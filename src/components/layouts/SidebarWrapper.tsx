@@ -15,10 +15,10 @@ export interface LinkItemProps {
 }
 
 export const LinkItems: Array<LinkItemProps> = [
-    { name: 'Главная', icon: FiHome, to: '' },
+    // { name: 'Главная', icon: FiHome, to: '' },
     { name: 'Личный кабинет', icon: BsPersonCircle, to: '/lk' },
     { name: 'Квесты', icon: FiCompass, to: '/quests' },
-    { name: 'Галерея футажей', icon: GrGallery, to: '/gallery' },
+    { name: 'Библиотека', icon: GrGallery, to: '/gallery' },
     // {name: 'DUNGEON', icon: FaDungeon, to: '/dungeon'},
     // {name: 'SKILLS', icon: FiStar, to: '/skills'},
     // {name: 'Настройки', icon: FiSettings, to: '/settings'},

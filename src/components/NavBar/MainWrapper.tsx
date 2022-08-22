@@ -19,7 +19,6 @@ import {
     VStack,
 } from '@chakra-ui/react';
 import { FiBell, FiChevronDown, FiMenu, FiSearch } from 'react-icons/fi';
-import { BellIcon } from '@chakra-ui/icons';
 
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
@@ -32,7 +31,7 @@ interface Props {
     submit: () => void;
 }
 
-export const NavBar = ({ submit }: Props) => {
+export const MainWrapper = ({ submit }: Props) => {
     return (
         <div className="min-h-screen  flex flex-col">
             <div className="bg-sky-900">
@@ -57,7 +56,9 @@ export const NavBar = ({ submit }: Props) => {
                                                 cn(
                                                     'px-3 py-2 rounded-md text-sm font-medium float-left',
                                                     { 'text-rose-500': isActive },
-                                                    { 'text-gray-300 hover:bg-gray-700 hover:text-white': !isActive },
+                                                    {
+                                                        'text-gray-300 hover:bg-gray-700 hover:text-white': !isActive,
+                                                    },
                                                 )
                                             }
                                         >
@@ -82,7 +83,8 @@ export const NavBar = ({ submit }: Props) => {
                                                 <Avatar
                                                     size={'sm'}
                                                     src={
-                                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcVxy' +
+                                                        'https://encrypted-tbn0.gstati' +
+                                                        'c.com/images?q=tbn:ANd9GcRcVxy' +
                                                         'qBVFlpzFb0Cnj1Yd04Oxg6z-fG5zsgw&usqp=CAU'
                                                     }
                                                 />

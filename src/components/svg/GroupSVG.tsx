@@ -2,7 +2,7 @@ import * as React from 'react';
 import SvgButton from "./SvgButton";
 import {log} from "util";
 
-const SvgComponent = props => (
+const SvgComponent = (props: any) => (
     <svg width={387} height={59} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <SvgButton/>
         <g filter="url(#c)">

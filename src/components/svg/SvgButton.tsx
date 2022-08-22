@@ -2,7 +2,7 @@
 /* tslint:disable */
 import * as React from 'react';
 
-const SvgButton = props => (
+const SvgButton = (props: any) => (
     <svg {...props} width={82} height={59} fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#a)">
             <rect x={8} y={8} width={66} height={43} rx={10} fill="#fff" />

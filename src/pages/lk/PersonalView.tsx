@@ -9,9 +9,11 @@ export const PersonalView = () => {
             <PageHeader
                 title={'Личный кабинет'}
                 subMenu={[
-                    { name: 'Информация', to: '', end: true },
+                    { name: 'Персонаж', to: '', end: true },
                     { name: 'Подземелье', to: 'dungeon' },
-                    { name: 'Скиллы', to: 'skills' },
+                    // { name: 'Скиллы', to: 'skills' },
+                    // { name: 'Экипировка', to: 'equipment' },
+                    // { name: 'Звание', to: 'rank' },
                     { name: 'Настройки', to: 'settings' },
                 ]}
             />
